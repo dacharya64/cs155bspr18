@@ -28,6 +28,9 @@ class Scene {
       const uv = intersection.uv
       const mat = obj.material
       const e = ray.p.subtract(p).normalize()
+      //const l = ray.p.subtract(p).normalize()
+      //console.log(l);
+
 
       let textureColor = new Color(1,1,1)
       if (mat.texture!='none'){
@@ -42,8 +45,23 @@ class Scene {
         let color2 = this.getColorForRay(ray1,depth-1)
         //console.dir(['gCFR',mat.reflectivity,theColor,color2])
 
-        theColor = Color.average(mat.reflectivity,color2,theColor)
+
+          theColor = Color.average(mat.reflectivity,color2,theColor)
+
+
       }
+
+      //FOG
+
+        //console.log(ray.len - 1)
+        //theColor = Color.average(ray.len - 1,Color.WHITE,theColor)
+
+
+
+
+
+    //  }
+      //theColor = Color.average(.5,Color.WHITE,theColor)
       return theColor
     }
   }

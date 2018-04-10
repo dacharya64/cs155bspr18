@@ -3,16 +3,30 @@
 function runTest(){
 	canvas.width=900
 	canvas.height=900
-	const renderer = new Renderer(300,300)
+	const renderer = new Renderer(900,900)
 	const scene = new Scene('demo0')
 
 
 	const s1 = new Sphere()
-	s1.material = new Material(Color.WHITE,Color.WHITE,Color.WHITE)
+	s1.material = new Material(Color.GREEN,Color.BLUE,Color.RED)
 	s1.material.shininess = 100
 	s1.translate(new Vector3(0,5,0))
 		.scale(new Vector3(3,3,3))
 	scene.addObject(s1)
+
+	const sx = new Sphere()
+	sx.material = new Material(Color.GREEN,Color.BLUE,Color.RED)
+	sx.material.shininess = 100
+	sx.translate(new Vector3(-10,10,0))
+		.scale(new Vector3(3,3,3))
+	scene.addObject(sx)
+
+	const sz = new Sphere()
+	sz.material = new Material(Color.GREEN,Color.BLUE,Color.RED)
+	sz.material.shininess = 100
+	sz.translate(new Vector3(-50,20,0))
+		.scale(new Vector3(3,3,3))
+	scene.addObject(sz)
 
 	s2 = new Rectangle(5,10)
 	s2.translate(new Vector3(2,2,-12))
@@ -21,6 +35,8 @@ function runTest(){
 	s2.material.shininess = 100
   s2.material.reflectivity = 0.5
 	scene.addObject(s2)
+
+
 
 	s3 = new Sphere()
 	s3.translate(new Vector3(-10,5,-12)).scale(new Vector3(3,3,3))
