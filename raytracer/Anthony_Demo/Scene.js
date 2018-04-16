@@ -120,7 +120,7 @@ class Scene {
              .add(specular)
       }
     }
-    return theColor
+    return theColor.add(mat.emissive)
   }
 
 }

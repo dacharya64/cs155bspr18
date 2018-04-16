@@ -11,7 +11,7 @@ class Sphere extends Object3D{
     super()
     this.center = new Vector3(0,0,0)
     this.radius = 1
-    this.material = new Material(Color.WHITE, Color.WHITE, Color.WHITE, 255)
+    this.material = new Material(Color.WHITE, Color.WHITE, Color.WHITE, 255, Color.RED)
     this.transform = new Transform()
   }
 

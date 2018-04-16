@@ -28,8 +28,6 @@ class Light{
     else return 0
   }
 
-
-
   specularBlinnPhong(point,normal,eye, shininess){
     // we need to write this!
     const lightv = this.position.subtract(point).normalize()
