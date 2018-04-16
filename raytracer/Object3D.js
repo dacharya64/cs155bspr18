@@ -3,6 +3,10 @@ class Object3D {
   constructor(){
     //this.position = new Vector3(0,0,0)
     this.material = Material.WHITEMAT
+    this.scaleX = 1;
+    this.scaleY = 1;
+    this.scaleZ = 1;
+
     //this.transform = new Transform()
   }
 
@@ -43,6 +47,9 @@ class Object3D {
 
   scale(s){
     this.transform = this.transform.scale(s)
+    this.scaleX = s.x;
+    this.scaleY = s.y;
+    this.scaleZ = s.z;
     return this
   }
 

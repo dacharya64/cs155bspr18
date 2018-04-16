@@ -34,4 +34,41 @@ class Renderer {
       }
     }
   }
+  renderOrthographic(view, scene, object, zoom){
+    const camera = new Camera();
+    const origin = new Vector3(0,0,0);
+    switch(view){
+      case 'SIDE':
+        camera.translate(new Vector3(object.position.x + (object.scaleX * zoom), object.position.y, object.position.z));
+        break;
+      case 'TOP':
+        camera.translate(new Vector3(object.position.x, object.position.y + (object.scaleY * zoom), object.position.z));
+        break;
+      case 'FRONT':
+        camera.translate(new Vector3(object.position.x, object.position.y, object.position.z + (object.scaleZ * zoom)));
+        break;
+    }
+    camera.lookAt(origin);
+    console.log(camera);
+    console.log(object);
+    this.render(scene, camera);
+  }
+  renderOrthographicWithCamera(view, scene, object, zoom, camera){
+    const origin = new Vector3(0,0,0);
+    switch(view){
+      case 'SIDE':
+        camera.translate(new Vector3(object.position.x + (object.scaleX * zoom), object.position.y, object.position.z));
+        break;
+      case 'TOP':
+        camera.translate(new Vector3(object.position.x, object.position.y + (object.scaleY * zoom), object.position.z));
+        break;
+      case 'FRONT':
+        camera.translate(new Vector3(object.position.x, object.position.y, object.position.z + (object.scaleZ * zoom)));
+        break;
+    }
+    camera.lookAt(origin);
+    console.log(camera);
+    console.log(object);
+    this.render(scene, camera);
+  }
 }
