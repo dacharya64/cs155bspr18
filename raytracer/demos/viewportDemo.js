@@ -1,4 +1,4 @@
-document.getElementById('title').innerHTML="Blueprint Demo - Front, Top, Side, and Normal Views"
+document.getElementById('title').innerHTML="Viewport Demo - Front, Top, Side, and Normal Views"
 
 
 function runTest(){
@@ -20,7 +20,7 @@ const rendererFront = new Renderer(imageW,imageH,'canvas1');
 const rendererTop = new Renderer(imageW,imageH, 'canvas3');
 const rendererSide = new Renderer(imageW,imageH,'canvas2');
 const renderer = new Renderer(imageW,imageH, 'canvas4');
-const scene = new Scene('blueprintDemo');
+const scene = new Scene('viewportDemo');
 const camera = new Camera();
 rendererFront.depth=1600;
 rendererTop.depth=1600;
@@ -49,9 +49,9 @@ scene.addLight(light2);
 camera.translate(new Vector3(0,10,30));
 camera.lookAt(new Vector3(0,0,0));
 
-rendererFront.renderBlueprint('FRONT', scene, sphere, 5);
-rendererTop.renderBlueprint('TOP', scene, sphere, 5);
-rendererSide.renderBlueprint('SIDE', scene, sphere, 5);
+rendererFront.renderViewport('FRONT', scene, sphere, 5);
+rendererTop.renderViewport('TOP', scene, sphere, 5);
+rendererSide.renderViewport('SIDE', scene, sphere, 5);
 renderer.render(scene,camera);
 }
 

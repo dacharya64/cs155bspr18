@@ -34,7 +34,7 @@ class Renderer {
       }
     }
   }
-  renderBlueprint(view, scene, object, zoom){
+  renderViewport(view, scene, object, zoom){
     const camera = new Camera();
     const origin = new Vector3(0,0,0);
     switch(view){
@@ -53,7 +53,7 @@ class Renderer {
     console.log(object);
     this.render(scene, camera);
   }
-  renderBlueprintWithCamera(view, scene, object, zoom, camera){
+  renderViewportWithCamera(view, scene, object, zoom, camera){
     const origin = new Vector3(0,0,0);
     switch(view){
       case 'SIDE':
