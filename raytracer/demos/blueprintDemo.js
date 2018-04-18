@@ -1,4 +1,4 @@
-document.getElementById('title').innerHTML="Orthographic Demo - Front, Top, Side, and Normal Views"
+document.getElementById('title').innerHTML="Blueprint Demo - Front, Top, Side, and Normal Views"
 
 
 function runTest(){
