@@ -20,7 +20,7 @@ const rendererFront = new Renderer(imageW,imageH,'canvas1');
 const rendererTop = new Renderer(imageW,imageH, 'canvas3');
 const rendererSide = new Renderer(imageW,imageH,'canvas2');
 const renderer = new Renderer(imageW,imageH, 'canvas4');
-const scene = new Scene('orthoDemo');
+const scene = new Scene('blueprintDemo');
 const camera = new Camera();
 rendererFront.depth=1600;
 rendererTop.depth=1600;
@@ -49,9 +49,9 @@ scene.addLight(light2);
 camera.translate(new Vector3(0,10,30));
 camera.lookAt(new Vector3(0,0,0));
 
-rendererFront.renderOrthographic('FRONT', scene, sphere, 5);
-rendererTop.renderOrthographic('TOP', scene, sphere, 5);
-rendererSide.renderOrthographic('SIDE', scene, sphere, 5);
+rendererFront.renderBlueprint('FRONT', scene, sphere, 5);
+rendererTop.renderBlueprint('TOP', scene, sphere, 5);
+rendererSide.renderBlueprint('SIDE', scene, sphere, 5);
 renderer.render(scene,camera);
 }
 
