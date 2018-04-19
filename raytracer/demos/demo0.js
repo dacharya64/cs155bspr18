@@ -4,7 +4,7 @@ function runTest(){
 	canvas.width=900
 	canvas.height=900
 	const renderer = new Renderer(900,900)
-	const scene = new Scene('demo0')
+	const scene = new Scene('demo0', true, 0.4)
 
 
 	const s1 = new Sphere()
@@ -17,14 +17,14 @@ function runTest(){
 	const sx = new Sphere()
 	sx.material = new Material(Color.GREEN,Color.BLUE,Color.RED)
 	sx.material.shininess = 100
-	sx.translate(new Vector3(-10,10,0))
+	sx.translate(new Vector3(-50,10,0))
 		.scale(new Vector3(3,3,3))
 	scene.addObject(sx)
 
 	const sz = new Sphere()
 	sz.material = new Material(Color.GREEN,Color.BLUE,Color.RED)
 	sz.material.shininess = 100
-	sz.translate(new Vector3(-50,20,0))
+	sz.translate(new Vector3(-400,50,0))
 		.scale(new Vector3(3,3,3))
 	scene.addObject(sz)
 
