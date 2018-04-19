@@ -54,16 +54,12 @@ class Scene {
 
       //FOG
         if (this.hasFog){
-          theColor = Color.average(ray.len - (1 - this.fogAmt),Color.WHITE,theColor) //1 is less fog, 0 is more fog
+          // if (Math.random() < 0.05){
+          //   console.log(ray.len);
+          // }
+          theColor = Color.average(ray.len - (1 - this.fogAmt),Color.WHITE,theColor) //0 fogamt is less fog, 1 is more fog
         }
 
-
-
-
-
-
-    //  }
-      //theColor = Color.average(.5,Color.WHITE,theColor)
       return theColor
     }
   }
