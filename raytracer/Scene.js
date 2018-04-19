@@ -1,11 +1,13 @@
 
 
 class Scene {
-  constructor(name){
+  constructor(name, hasFog, fogAmt){
     this.name=name
     this.objects=[]
     this.lights=[]
     this.globalAmbient = Color.BLACK //new Color(0.1,0.1,0.1)
+    this.hasFog = hasFog
+    this.fogAmt = fogAmt //0 to 1
   }
 
   addObject(x){
@@ -31,6 +33,7 @@ class Scene {
       //const l = ray.p.subtract(p).normalize()
       //console.log(l);
 
+
       let textureColor = new Color(1,1,1)
       if (mat.texture!='none'){
         textureColor = mat.texture.pixel(uv.u,uv.v)
@@ -45,14 +48,21 @@ class Scene {
         //console.dir(['gCFR',mat.reflectivity,theColor,color2])
 
           theColor = Color.average(mat.reflectivity,color2,theColor)
+
+
       }
 
       //FOG
+        if (this.hasFog){
+          theColor = Color.average(ray.len - (1 - this.fogAmt),Color.WHITE,theColor) //1 is less fog, 0 is more fog
+        }
 
-        //console.log(ray.len - 1)
-        //theColor = Color.average(ray.len - 1,Color.WHITE,theColor)
 
-	  //}
+
+
+
+
+    //  }
       //theColor = Color.average(.5,Color.WHITE,theColor)
       return theColor
     }
@@ -64,6 +74,7 @@ class Scene {
     let p1 = p.add(d1.scale(0.001))
     return new Ray3(p1,d1)
   }
+
 
   intersect(ray) {
     return Scene.intersectObjects(ray,this.objects)
@@ -83,7 +94,7 @@ class Scene {
       return RayIntersection.none()
 
     // now we know it did intersect an object so lets find the closest one
-    // let mindist=z[0].distance
+    //let mindist=z[0].distance
     let minIntersection=z[0]
     let mindist = minIntersection.point.subtract(ray.p).length()
     for(let x of z){
@@ -96,6 +107,7 @@ class Scene {
     return minIntersection
 
   }
+
 
   reaches(light,point){
     const lightdir = point.subtract(light.position);
@@ -122,5 +134,6 @@ class Scene {
     }
     return theColor
   }
+
 
 }
