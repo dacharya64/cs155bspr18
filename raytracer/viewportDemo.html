@@ -6,13 +6,28 @@ Example of utilizing the viewport methods.
 	<head>
 		<meta charset=utf-8>
 		<title>Viewport Demo</title>
+		<link href="https://fonts.googleapis.com/css?family=Londrina+Shadow" rel="stylesheet">
 		<style>
-			body { margin: 0;}
+			body {
+				text-align: center;
+				margin: 0;
+				background-color: black;
+			}
+			h1 {
+				text-align: center;
+				color: white;
+				font-family: 'Londrina Shadow', cursive;
+			}
+			p {
+				text-align: center;
+				color: white;
+				font-family: 'Londrina Shadow', cursive;
+			}
 		</style>
 	</head>
 	<body>
-		<h1 id="title">Viewport Demo
-	</h1>
+		<h1 id="title">Viewport Demo</h1>
+		<h1 id="loading">Loading...</h1>
 		<script src="Vector3.js"></script>
 		<script src="Ray3.js"></script>
 		<script src="RayIntersection.js"></script>
@@ -29,12 +44,15 @@ Example of utilizing the viewport methods.
 		<script src="Sphere.js"></script>
 		<script src="Plane.js"></script>
 
+		<p>Front View</p>
 		<canvas id="canvas1"></canvas>
+		<p>Top View</p>
 		<canvas id="canvas2"></canvas>
+		<p>Side View</p>
 		<canvas id="canvas3"></canvas>
+		<p>Normal/Perspective View</p>
 		<canvas id="canvas4"></canvas>
 		<canvas id="draw" style="display:none"></canvas>
-		<img id="wood" src="/images/wood.jpg" style="display:none">
 		<script src="demos/viewportDemo.js"></script>
 	</body>
 </html>
